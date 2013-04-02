@@ -1,4 +1,11 @@
-mkpasswd
-========
+# Mkpasswd
 
-Utility for generating secure passwords on the command line
+A simple tool for generating crypt(3) $6$ (SHA512) hashed passwords on Mac OS X.
+
+## Installation
+
+    gem install mkpasswd
+
+## Usage
+
+See `mkpasswd --help`:
