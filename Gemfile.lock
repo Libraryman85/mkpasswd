@@ -1,0 +1,16 @@
+PATH
+  remote: .
+  specs:
+    mkpasswd (0.0.1)
+      unix-crypt (~> 1.0.2)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    unix-crypt (1.0.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mkpasswd!

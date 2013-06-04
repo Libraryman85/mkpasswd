@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
+require 'rubygems'
+gem "unix-crypt"
+
+require 'getoptlong'
+require 'unix-crypt'
+
+opts = Mkpasswd::Exec::Mkpasswd.new(ARGV)
+opts.parse!
+
+GetoptLong.new(
+  [ '--encryption-hash', '-e', GetoptLong::REQUIRED_ARGUMENT ],
+  [ '--password', '-p', GetoptLong::REQUIRED_ARGUMENT ],
+  [ '--salt', '-s', GetoptLong::REQUIRED_ARGUMENT ],
+  [ '--help',   '-h', GetoptLong::NO_ARGUMENT ]
+).each do |opt,arg|
+  case opt
+  when '--encryption-hash'
+    encryption_hash = arg.to_s
+    case encryption_hash
+    when 'DES'
+
+    when 'MD5'
+
+    when 'SHA256'
+
+    when 'SHA512'
+
+    else
+      puts "Srsly?"
+      exit 1
+    end
+  when '--help'
+    puts "-e, --encryption-hash"
+    puts "\tGenerates encrypted passwords with the selected encryption hash, can be either DES, MD5, SHA256 or SHA512"
+    exit
+  end
+
+  puts UnixCrypt::SHA512.build("Hello world!")
+end
